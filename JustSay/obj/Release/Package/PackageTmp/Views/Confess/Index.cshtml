@@ -1,0 +1,70 @@
+﻿@model PagedList<Justsay.Models.Confess>
+@{
+    ViewBag.Title = "最新表白";
+}
+<script src="@Url.Content("~/Scripts/jquery.masonry.js")" type="text/javascript"></script>
+
+<div class="row">
+
+     <div class="col-md-12">
+         <div class="jumbotron cfs-head">
+　　                 <br />极度想告诉对方自己的想法却缺乏勇气，因此导致抑郁.
+                     <p>@Html.ActionLink("表白", "Create", null, new { @class="btn btn-success"})</p>
+                     JustSay,用邮件，短信的方法通知TA
+           
+        </div>
+         </div>
+</div>
+
+<div id="container">
+
+    @foreach (var item in Model)
+    {
+
+        <div class='grid'>
+            @if (!item.ImgUrl.IsNullOrEmpty())
+            {<div class='imgholder'>
+                <img src='/Upload/Img/@item.ImgUrl' alt='向 @item.ToName 表白' />
+            </div>
+            }
+
+            <h4>To:@item.ToName </h4>
+            <p>
+                @item.Content.SubstringLength(50)
+            </p>
+            <div class='msg'>
+                    <span id="up@(item.ID)">
+                        @Ajax.ActionLink(item.Up.ToString(), "Up", new { id = item.ID },
+                new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "up" + item.ID }, new { @class = "glyphicon glyphicon-thumbs-up" })</span>
+
+
+                    <span class="glyphicon glyphicon-eye-open">@item.Click</span>
+                    <span class='r'>@Html.ActionLink("查看", "Details", new { id = item.ID })</span>
+                
+
+            </div>
+
+        </div>
+    }
+</div>
+@Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id" }, new { id="flickrpager"})
+@{Html.RegisterMvcPagerScriptResource();}
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+
+        layout();
+        $("li:eq(2)").addClass("active");
+
+    });
+
+    function layout() {
+        var $container = $('#container');
+        $container.imagesLoaded(function () {
+            $container.masonry({
+                itemSelector: '.grid',
+                gutterWidth: 22,
+            });
+        });
+    };
+</script>

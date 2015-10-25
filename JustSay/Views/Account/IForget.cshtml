@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "找回密码";
+}
+
+<div class="form-group form-inline">
+    @using (Html.BeginForm()) {
+        <fieldset>
+        <legend>找回密码</legend>
+<p class="text-center">
+  <label>邮箱：</label>  
+    @Html.TextBox("email","",new { @class="form-control",placeholder="输入登录邮箱"})
+    @Html.ValidationMessage("email")
+<input type="submit" value="找回" class="btn" />
+    </p>
+    </fieldset>
+    }
+</div>

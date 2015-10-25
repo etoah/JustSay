@@ -1,0 +1,69 @@
+﻿@model PagedList<Justsay.Models.Relation>
+
+@{
+    ViewBag.Title = "暗恋管理";
+    Layout = "~/Views/Shared/_Manage.cshtml";
+}
+
+<h2>暗恋 管理</h2>
+    <form class="navbar-form navbar-left" role="search">
+
+        <div class="input-group">
+            <input type="text" id="id" class="form-control" placeholder="输入ID">
+            <input type="hidden" id="controltype" value="relation" class="form-control" placeholder="输入ID">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">操作 <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    
+                    <li><a href="#details" data-control="details">查看</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#Edit" data-control="Edit">修改</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#delete" data-control="delete">删除</a></li>
+                    
+                </ul>
+            </div>
+            <!-- /btn-group -->
+        </div>
+        <!-- /input-group -->
+
+    </form>
+<table class="table table-hover">
+    <tr>
+        <th>
+            ShowName
+        </th>
+        <th>
+            ToName
+        </th>
+
+        <th>
+            Time
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+          <a href="/message/create/?idstr=@item.MemberID.UidEncrypt()&name=@item.FromName.DefaultValue("佚名")" data-toggle="modal" data-target="#justsaymodal" >@item.FromName.DefaultValue("佚名") </a>
+        </td>
+   
+
+        <td>
+            @Html.DisplayFor(modelItem => item.ToName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.Pager(Model,new PagerOptions{PageIndexParameterName = "id"})

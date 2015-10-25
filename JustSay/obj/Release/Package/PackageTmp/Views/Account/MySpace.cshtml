@@ -1,0 +1,37 @@
+﻿@model Justsay.Models.Member
+@{
+    ViewBag.Title = Model.ShowName+"的心房";
+    Layout = "~/Views/Shared/_MySpace.cshtml";
+}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">个人信息</h3>
+            </div>
+            <div class="panel-body">
+                <h3>我的信息</h3>              
+                <p class="userinfo"><span class="glyphicon glyphicon-envelope"></span>&nbsp Email：@Model.Email.HideEmail()</p>
+                <p class="userinfo"><span class="glyphicon glyphicon-leaf"></span>&nbsp <span   data-container="body" data-content="节操币可发表点滴，回复获得。" data-toggle="popover" data-trigger="hover" id="Score"  data-original-title="说明"> 节操币： @Html.DisplayFor(model => model.Score)</span></p>
+                <p class="userinfo"><span class="glyphicon glyphicon-tower"></span>&nbsp 马甲：@Html.DisplayFor(model => model.ShowName)</p>
+                <p class="userinfo"><span class="glyphicon glyphicon-earphone"></span>&nbsp 电话：@Model.Phone.HidePhone()</p>
+                <p class="userinfo"><span class="glyphicon glyphicon-user"></span>&nbsp 姓名：@Html.DisplayFor(model => model.RealName)</p>               
+                <p class="userinfo"><span class="glyphicon glyphicon-euro"></span>&nbsp 说币： @Html.DisplayFor(model => model.Money)</p>
+                <p class="userinfo"><span class="glyphicon glyphicon-user"></span>&nbsp 角色：@Html.DisplayFor(model => model.Role.RoleName)</p>
+                
+          
+                <p>
+                    @Html.ActionLink("编辑资料", "Edit", new { id = Model.ID }, new {@class="btn btn-default" })
+                    @Html.ActionLink("修改密码", "ChangePassword", new { id = Model.ID }, new {@class="btn btn-default" })
+                    @Ajax.ActionLink("升级为高级用户", "Promote", new { id = Model.ID }, new AjaxOptions {HttpMethod = "Post",UpdateTargetId="imhere"}, new { @class = "btn btn-default" })                
+                </p>
+            </div>
+        </div>  
+<script>
+
+    $('#Score').popover();
+</script>    
+<script src="@Url.Content("~/Scripts/MicrosoftAjax.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/MicrosoftMvcAjax.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+
+

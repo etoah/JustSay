@@ -1,0 +1,53 @@
+﻿@model IPagedList<Justsay.Models.Comment>
+@{
+    ViewBag.Title = "我的评论";
+    Layout = "~/Views/Shared/_MySpace.cshtml";
+}
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">我的评论</h3>
+    </div>
+<table class="table table-hover">
+    <tr>
+
+        <th>内容
+        </th>
+        <th>Time
+        </th>
+        <th>原文
+        </th>
+        <th>Up
+        </th>
+        <th>操作</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.ActionLink("查看原文", "details", "Funny", new { id = item.FunnyID }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Up)
+            </td>
+            <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+@Ajax.Pager(Model,
+    new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = false },
+    new MvcAjaxOptions { UpdateTargetId = "MyComment", LoadingElementId = "loadingDiv", OnBegin = "$('#MyComment').fadeOut('slow')", OnComplete = "$('#MyComment').fadeIn('slow')" },
+    new { @class = "pager" })
+
+    </div>

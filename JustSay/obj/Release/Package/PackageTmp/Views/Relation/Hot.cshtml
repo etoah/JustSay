@@ -1,0 +1,27 @@
+﻿@model PagedList<Justsay.Models.Relation>
+@{
+    Layout = null;
+}
+
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">暗恋<a href="/Relation/index" class="pull-right">更多>>></a></h3>
+    </div>
+    <div class="panel-body">
+        @foreach (var item in Model)
+        { 
+            <div class="alert alert-success relalist">
+                <a href="/message/create/?idstr=@item.MemberID.UidEncrypt()&name=@item.ShowName.DefaultValue("佚名")" data-toggle="modal" data-target="#justsaymodal" >@item.ShowName.DefaultValue("佚名") </a>
+                <img class="heartarrow" src="/Content/Images/一箭心.png" />
+                @Html.DisplayFor(modelItem => item.ToName)
+                <span><small>@Html.ActionLink("详细", "Details", new { id = item.ID })</small></span>
+            </div>
+
+        }
+
+    </div>
+</div>
+
+

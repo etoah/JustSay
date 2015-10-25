@@ -1,0 +1,41 @@
+﻿@model Justsay.Models.Relation
+@{
+    ViewBag.Title = "相互喜欢";
+    Layout = "~/Views/Shared/_NoHeader.cshtml";
+}
+
+<div class="maindiv">
+    <img src="../../Content/Images/相互暗恋.jpg" class="loveeach" />
+    <p>
+       <h4><b class="text-success">@Model.ToName</b> 与 <b class="text-success">@Model.FromName</b>相互喜欢，在一起!在一起!</h4>
+        <br />
+
+    </p>
+    <p>
+        @if (ViewBag.IsEmailSuccess)
+        {
+            <small class="text-success">邮件发送成功！</small>
+        }
+        else
+        {
+            <small class="text-danger">邮件发送失败！</small>
+        }
+        @if (ViewBag.IsSMSSuccess)
+        {
+            <small class="text-success">短信发送成功！</small>
+        }
+        else
+        {
+            <small class="text-danger">短信发送失败！</small>
+        }
+        @if (ViewBag.IsEmailSuccess && ViewBag.IsSMSSuccess)
+        {
+            <small class="text-info">已通过邮件、短信向你们通知你们哦！！！</small>
+        }
+    </p>
+
+            <div class="btn-group">
+            <a type="button" class="btn btn-success btn-lg" href="/relation/">查看
+            </a>
+        </div>
+</div>

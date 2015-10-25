@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<div class="well well-lg about">
+
+<h3>捐赠</h3>
+
+
+   <p>支付宝：justsaypay@qq.com </p> 
+   <img src="/Content/Images/alipay.png" class="img-thumbnail"/>
+    <p>
+        就说是个人开发的应用，其中服务器和短信用了个人大量的资金，还请支持就说,以便就说更好的发展。
+    </p>
+<h3>关于</h3>
+<address>
+<a href="/message/create/?idstr=@(5.UidEncrypt())&name=管理员" data-toggle="modal" data-target="#justsaymodal" class="btn btn-info btn-lg">发消息给管理员</a>
+  <br /><strong>邮箱</strong><br>
+  <a href="mailto:977942491@qq.com">977942491@qq.com</a>
+</address>
+
+</div>
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>

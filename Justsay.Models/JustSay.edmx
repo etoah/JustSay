@@ -1,0 +1,1033 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JustSay.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="JustSayModelStoreContainer">
+          <EntitySet Name="ActionLog" EntityType="JustSay.Model.Store.ActionLog" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Comments" EntityType="JustSay.Model.Store.Comments" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Confesses" EntityType="JustSay.Model.Store.Confesses" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="EmailQueue" EntityType="JustSay.Model.Store.EmailQueue" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Funnies" EntityType="JustSay.Model.Store.Funnies" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Members" EntityType="JustSay.Model.Store.Members" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Messages" EntityType="JustSay.Model.Store.Messages" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="PhoneQueue" EntityType="JustSay.Model.Store.PhoneQueue" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Pro" EntityType="JustSay.Model.Store.Pro" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Relations" EntityType="JustSay.Model.Store.Relations" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Roles" EntityType="JustSay.Model.Store.Roles" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ToDoLists" EntityType="JustSay.Model.Store.ToDoLists" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_ActionLog_ToMember" Association="JustSay.Model.Store.FK_ActionLog_ToMember">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="ActionLog" EntitySet="ActionLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_ToFunnies" Association="JustSay.Model.Store.FK_Comments_ToFunnies">
+            <End Role="Funnies" EntitySet="Funnies" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_ToTable" Association="JustSay.Model.Store.FK_Comments_ToTable">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailQueue_ToConfess" Association="JustSay.Model.Store.FK_EmailQueue_ToConfess">
+            <End Role="Confesses" EntitySet="Confesses" />
+            <End Role="EmailQueue" EntitySet="EmailQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailQueue_ToRelation" Association="JustSay.Model.Store.FK_EmailQueue_ToRelation">
+            <End Role="Relations" EntitySet="Relations" />
+            <End Role="EmailQueue" EntitySet="EmailQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Funnies_ToConfess" Association="JustSay.Model.Store.FK_Funnies_ToConfess">
+            <End Role="Confesses" EntitySet="Confesses" />
+            <End Role="Funnies" EntitySet="Funnies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Funnies_ToMember" Association="JustSay.Model.Store.FK_Funnies_ToMember">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Funnies" EntitySet="Funnies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Members_ToRole" Association="JustSay.Model.Store.FK_Members_ToRole">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_ToFromID" Association="JustSay.Model.Store.FK_Messages_ToFromID">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_ToToID" Association="JustSay.Model.Store.FK_Messages_ToToID">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhoneQueue_ToConfess" Association="JustSay.Model.Store.FK_PhoneQueue_ToConfess">
+            <End Role="Confesses" EntitySet="Confesses" />
+            <End Role="PhoneQueue" EntitySet="PhoneQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhoneQueue_ToRelation" Association="JustSay.Model.Store.FK_PhoneQueue_ToRelation">
+            <End Role="Relations" EntitySet="Relations" />
+            <End Role="PhoneQueue" EntitySet="PhoneQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relations_ToTable" Association="JustSay.Model.Store.FK_Relations_ToTable">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Relations" EntitySet="Relations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable" Association="JustSay.Model.Store.FK_Table_ToTable">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Confesses" EntitySet="Confesses" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ActionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="Action" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ClientIP" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="AdminReplyTime" Type="datetime" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ShowName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="FunnyID" Type="int" Nullable="false" />
+          <Property Name="Up" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Confesses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ShowName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Up" Type="int" Nullable="false" />
+          <Property Name="Click" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="30" />
+          <Property Name="IsSms" Type="bit" Nullable="false" />
+          <Property Name="FlashUrl" Type="varchar" MaxLength="500" />
+          <Property Name="MusicUrl" Type="varchar" MaxLength="500" />
+          <Property Name="ToEmail" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ToPhone" Type="varchar" MaxLength="30" />
+          <Property Name="ToName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="ImgUrl" Type="varchar" MaxLength="100" />
+          <Property Name="ViewName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmailQueue">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ConfessID" Type="int" Nullable="false" />
+          <Property Name="RelationID" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Funnies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ShowName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" />
+          <Property Name="Up" Type="int" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="CommentCount" Type="int" Nullable="false" />
+          <Property Name="ImgUrl" Type="varchar" MaxLength="100" />
+          <Property Name="ConfessID" Type="int" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="JoinDate" Type="datetime" Nullable="false" />
+          <Property Name="ShowName" Type="nvarchar" MaxLength="20" />
+          <Property Name="LastVisit" Type="datetime" />
+          <Property Name="QQ" Type="varchar" MaxLength="15" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="20" />
+          <Property Name="RoleDeadLine" Type="datetime" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="Money" Type="int" Nullable="false" />
+          <Property Name="LastPostTime" Type="datetime" Nullable="false" />
+          <Property Name="MessageCount" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FromID" Type="int" Nullable="false" />
+          <Property Name="ToID" Type="int" Nullable="false" />
+          <Property Name="FromName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ToName" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsNew" Type="bit" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PhoneQueue">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ConfessID" Type="int" Nullable="false" />
+          <Property Name="RelationID" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Pro">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Info" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeStart" Type="datetime" Nullable="false" />
+          <Property Name="DeadLine" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Relations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ShowName" Type="nvarchar" MaxLength="20" />
+          <Property Name="FromName" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="FromPhone" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FromEmail" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ToName" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="ToPhone" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="ToEmail" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Department" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ToDoLists">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="From" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ActionLog_ToMember">
+          <End Role="Members" Type="JustSay.Model.Store.Members" Multiplicity="1" />
+          <End Role="ActionLog" Type="JustSay.Model.Store.ActionLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActionLog">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_ToFunnies">
+          <End Role="Funnies" Type="JustSay.Model.Store.Funnies" Multiplicity="1" />
+          <End Role="Comments" Type="JustSay.Model.Store.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funnies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="FunnyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_ToTable">
+          <End Role="Members" Type="JustSay.Model.Store.Members" Multiplicity="1" />
+          <End Role="Comments" Type="JustSay.Model.Store.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailQueue_ToConfess">
+          <End Role="Confesses" Type="JustSay.Model.Store.Confesses" Multiplicity="1" />
+          <End Role="EmailQueue" Type="JustSay.Model.Store.EmailQueue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Confesses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmailQueue">
+              <PropertyRef Name="ConfessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailQueue_ToRelation">
+          <End Role="Relations" Type="JustSay.Model.Store.Relations" Multiplicity="1" />
+          <End Role="EmailQueue" Type="JustSay.Model.Store.EmailQueue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Relations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmailQueue">
+              <PropertyRef Name="RelationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Funnies_ToConfess">
+          <End Role="Confesses" Type="JustSay.Model.Store.Confesses" Multiplicity="0..1" />
+          <End Role="Funnies" Type="JustSay.Model.Store.Funnies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Confesses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Funnies">
+              <PropertyRef Name="ConfessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Funnies_ToMember">
+          <End Role="Members" Type="JustSay.Model.Store.Members" Multiplicity="1" />
+          <End Role="Funnies" Type="JustSay.Model.Store.Funnies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Funnies">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Members_ToRole">
+          <End Role="Roles" Type="JustSay.Model.Store.Roles" Multiplicity="1" />
+          <End Role="Members" Type="JustSay.Model.Store.Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_ToFromID">
+          <End Role="Members" Type="JustSay.Model.Store.Members" Multiplicity="1" />
+          <End Role="Messages" Type="JustSay.Model.Store.Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="FromID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_ToToID">
+          <End Role="Members" Type="JustSay.Model.Store.Members" Multiplicity="1" />
+          <End Role="Messages" Type="JustSay.Model.Store.Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="ToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhoneQueue_ToConfess">
+          <End Role="Confesses" Type="JustSay.Model.Store.Confesses" Multiplicity="1" />
+          <End Role="PhoneQueue" Type="JustSay.Model.Store.PhoneQueue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Confesses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PhoneQueue">
+              <PropertyRef Name="ConfessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhoneQueue_ToRelation">
+          <End Role="Relations" Type="JustSay.Model.Store.Relations" Multiplicity="1" />
+          <End Role="PhoneQueue" Type="JustSay.Model.Store.PhoneQueue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Relations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PhoneQueue">
+              <PropertyRef Name="RelationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relations_ToTable">
+          <End Role="Members" Type="JustSay.Model.Store.Members" Multiplicity="1" />
+          <End Role="Relations" Type="JustSay.Model.Store.Relations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Relations">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable">
+          <End Role="Members" Type="JustSay.Model.Store.Members" Multiplicity="1" />
+          <End Role="Confesses" Type="JustSay.Model.Store.Confesses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Confesses">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JustSay.Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="JustSayEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ActionLogs" EntityType="JustSay.Model.ActionLog" />
+          <EntitySet Name="Comments" EntityType="JustSay.Model.Comment" />
+          <EntitySet Name="Confesses" EntityType="JustSay.Model.Confess" />
+          <EntitySet Name="Funnies" EntityType="JustSay.Model.Funny" />
+          <EntitySet Name="Members" EntityType="JustSay.Model.Member" />
+          <EntitySet Name="Messages" EntityType="JustSay.Model.Message" />
+          <EntitySet Name="Relations" EntityType="JustSay.Model.Relation" />
+          <EntitySet Name="Roles" EntityType="JustSay.Model.Role" />
+          <EntitySet Name="ToDoLists" EntityType="JustSay.Model.ToDoList" />
+          <AssociationSet Name="FK_ActionLog_ToMember" Association="JustSay.Model.FK_ActionLog_ToMember">
+            <End EntitySet="Members" Role="Members" />
+            <End EntitySet="ActionLogs" Role="ActionLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_ToFunnies" Association="JustSay.Model.FK_Comments_ToFunnies">
+            <End EntitySet="Funnies" Role="Funnies" />
+            <End EntitySet="Comments" Role="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_ToTable" Association="JustSay.Model.FK_Comments_ToTable">
+            <End EntitySet="Members" Role="Members" />
+            <End EntitySet="Comments" Role="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable" Association="JustSay.Model.FK_Table_ToTable">
+            <End EntitySet="Members" Role="Members" />
+            <End EntitySet="Confesses" Role="Confesses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Funnies_ToTable" Association="JustSay.Model.FK_Funnies_ToTable">
+            <End EntitySet="Members" Role="Members" />
+            <End EntitySet="Funnies" Role="Funnies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Members_ToTable" Association="JustSay.Model.FK_Members_ToTable">
+            <End EntitySet="Roles" Role="Roles" />
+            <End EntitySet="Members" Role="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_ToFromID" Association="JustSay.Model.FK_Messages_ToFromID">
+            <End EntitySet="Members" Role="Members" />
+            <End EntitySet="Messages" Role="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_ToToID" Association="JustSay.Model.FK_Messages_ToToID">
+            <End EntitySet="Members" Role="Members" />
+            <End EntitySet="Messages" Role="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relations_ToTable" Association="JustSay.Model.FK_Relations_ToTable">
+            <End EntitySet="Members" Role="Members" />
+            <End EntitySet="Relations" Role="Relations" />
+          </AssociationSet>
+          <EntitySet Name="EmailQueues" EntityType="JustSay.Model.EmailQueue" />
+          <EntitySet Name="PhoneQueues" EntityType="JustSay.Model.PhoneQueue" />
+          <AssociationSet Name="FK_EmailQueue_ToConfess" Association="JustSay.Model.FK_EmailQueue_ToConfess">
+            <End EntitySet="Confesses" Role="Confess" />
+            <End EntitySet="EmailQueues" Role="EmailQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhoneQueue_ToConfess" Association="JustSay.Model.FK_PhoneQueue_ToConfess">
+            <End EntitySet="Confesses" Role="Confess" />
+            <End EntitySet="PhoneQueues" Role="PhoneQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailQueue_ToRelation" Association="JustSay.Model.FK_EmailQueue_ToRelation">
+            <End EntitySet="Relations" Role="Relation" />
+            <End EntitySet="EmailQueues" Role="EmailQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhoneQueue_ToRelation" Association="JustSay.Model.FK_PhoneQueue_ToRelation">
+            <End EntitySet="Relations" Role="Relation" />
+            <End EntitySet="PhoneQueues" Role="PhoneQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Funnies_ToConfess" Association="JustSay.Model.FK_Funnies_ToConfess">
+            <End EntitySet="Confesses" Role="Confess" />
+            <End EntitySet="Funnies" Role="Funny" />
+          </AssociationSet>
+          <EntitySet Name="Pros" EntityType="JustSay.Model.Pro" />
+        </EntityContainer>
+        <EntityType Name="ActionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="MemberID" Nullable="false" Type="Int32" />
+          <Property Name="Action" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ClientIP" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="AdminReplyTime" Precision="3" Type="DateTime" />
+          <Property Name="CreateTime" Nullable="false" Precision="3" Type="DateTime" />
+          <NavigationProperty Name="Member" Relationship="JustSay.Model.FK_ActionLog_ToMember" FromRole="ActionLog" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="MemberID" Nullable="false" Type="Int32" />
+          <Property Name="ShowName" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Time" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="Content" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="FunnyID" Nullable="false" Type="Int32" />
+          <Property Name="Up" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="Funny" Relationship="JustSay.Model.FK_Comments_ToFunnies" FromRole="Comments" ToRole="Funnies" />
+          <NavigationProperty Name="Member" Relationship="JustSay.Model.FK_Comments_ToTable" FromRole="Comments" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Confess">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="MemberID" Nullable="false" Type="Int32" />
+          <Property Name="ShowName" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Content" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Time" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="Up" Nullable="false" Type="Int32" />
+          <Property Name="Click" Nullable="false" Type="Int32" />
+          <Property Name="Message" MaxLength="30" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IsSms" Nullable="false" Type="Boolean" />
+          <Property Name="FlashUrl" MaxLength="500" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="MusicUrl" MaxLength="500" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ToEmail" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ToPhone" MaxLength="30" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ToName" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ImgUrl" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ViewName" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <NavigationProperty Name="Member" Relationship="JustSay.Model.FK_Table_ToTable" FromRole="Confesses" ToRole="Members" />
+          <NavigationProperty Name="EmailQueues" Relationship="JustSay.Model.FK_EmailQueue_ToConfess" FromRole="Confess" ToRole="EmailQueue" />
+          <NavigationProperty Name="PhoneQueues" Relationship="JustSay.Model.FK_PhoneQueue_ToConfess" FromRole="Confess" ToRole="PhoneQueue" />
+          <NavigationProperty Name="Funnies" Relationship="JustSay.Model.FK_Funnies_ToConfess" FromRole="Confess" ToRole="Funny" />
+        </EntityType>
+        <EntityType Name="Funny">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="MemberID" Nullable="false" Type="Int32" />
+          <Property Name="ShowName" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Content" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Title" MaxLength="30" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Up" Nullable="false" Type="Int32" />
+          <Property Name="Time" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="CommentCount" Nullable="false" Type="Int32" />
+          <Property Name="ImgUrl" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ConfessID" Type="Int32" />
+          <NavigationProperty Name="Comments" Relationship="JustSay.Model.FK_Comments_ToFunnies" FromRole="Funnies" ToRole="Comments" />
+          <NavigationProperty Name="Member" Relationship="JustSay.Model.FK_Funnies_ToTable" FromRole="Funnies" ToRole="Members" />
+          <NavigationProperty Name="Confess" Relationship="JustSay.Model.FK_Funnies_ToConfess" FromRole="Funny" ToRole="Confess" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="Password" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="JoinDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="ShowName" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="LastVisit" Precision="3" Type="DateTime" />
+          <Property Name="QQ" MaxLength="15" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="Phone" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="RealName" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="RoleDeadLine" Precision="3" Type="DateTime" />
+          <Property Name="Score" Nullable="false" Type="Int32" />
+          <Property Name="Money" Nullable="false" Type="Int32" />
+          <Property Name="LastPostTime" Precision="3" Type="DateTime" Nullable="false" />
+          <Property Name="MessageCount" Nullable="false" Type="Int32" />
+          <Property Name="RoleID" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="ActionLogs" Relationship="JustSay.Model.FK_ActionLog_ToMember" FromRole="Members" ToRole="ActionLog" />
+          <NavigationProperty Name="Comments" Relationship="JustSay.Model.FK_Comments_ToTable" FromRole="Members" ToRole="Comments" />
+          <NavigationProperty Name="Confesses" Relationship="JustSay.Model.FK_Table_ToTable" FromRole="Members" ToRole="Confesses" />
+          <NavigationProperty Name="Funnies" Relationship="JustSay.Model.FK_Funnies_ToTable" FromRole="Members" ToRole="Funnies" />
+          <NavigationProperty Name="Role" Relationship="JustSay.Model.FK_Members_ToTable" FromRole="Members" ToRole="Roles" />
+          <NavigationProperty Name="Messages" Relationship="JustSay.Model.FK_Messages_ToFromID" FromRole="Members" ToRole="Messages" />
+          <NavigationProperty Name="Messages1" Relationship="JustSay.Model.FK_Messages_ToToID" FromRole="Members" ToRole="Messages" />
+          <NavigationProperty Name="Relations" Relationship="JustSay.Model.FK_Relations_ToTable" FromRole="Members" ToRole="Relations" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="FromID" Nullable="false" Type="Int32" />
+          <Property Name="ToID" Nullable="false" Type="Int32" />
+          <Property Name="FromName" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ToName" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IsNew" Nullable="false" Type="Boolean" />
+          <Property Name="Time" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="Content" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="Member" Relationship="JustSay.Model.FK_Messages_ToFromID" FromRole="Messages" ToRole="Members" />
+          <NavigationProperty Name="Member1" Relationship="JustSay.Model.FK_Messages_ToToID" FromRole="Messages" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Relation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="MemberID" Nullable="false" Type="Int32" />
+          <Property Name="ShowName" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="FromName" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="FromPhone" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="FromEmail" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ToName" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ToPhone" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ToEmail" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="Time" Nullable="false" Precision="3" Type="DateTime" />
+          <NavigationProperty Name="Member" Relationship="JustSay.Model.FK_Relations_ToTable" FromRole="Relations" ToRole="Members" />
+          <NavigationProperty Name="EmailQueues" Relationship="JustSay.Model.FK_EmailQueue_ToRelation" FromRole="Relation" ToRole="EmailQueue" />
+          <NavigationProperty Name="PhoneQueues" Relationship="JustSay.Model.FK_PhoneQueue_ToRelation" FromRole="Relation" ToRole="PhoneQueue" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="RoleName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="Department" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="Members" Relationship="JustSay.Model.FK_Members_ToTable" FromRole="Roles" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="ToDoList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Content" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Status" Nullable="false" Type="Int32" />
+          <Property Name="From" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Time" Nullable="false" Precision="3" Type="DateTime" />
+        </EntityType>
+        <Association Name="FK_ActionLog_ToMember">
+          <End Type="JustSay.Model.Member" Multiplicity="1" Role="Members" />
+          <End Type="JustSay.Model.ActionLog" Multiplicity="*" Role="ActionLog" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActionLog">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_ToFunnies">
+          <End Type="JustSay.Model.Funny" Multiplicity="1" Role="Funnies" />
+          <End Type="JustSay.Model.Comment" Multiplicity="*" Role="Comments" />
+          <ReferentialConstraint>
+            <Principal Role="Funnies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="FunnyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_ToTable">
+          <End Type="JustSay.Model.Member" Multiplicity="1" Role="Members" />
+          <End Type="JustSay.Model.Comment" Multiplicity="*" Role="Comments" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable">
+          <End Type="JustSay.Model.Member" Multiplicity="1" Role="Members" />
+          <End Type="JustSay.Model.Confess" Multiplicity="*" Role="Confesses" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Confesses">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Funnies_ToTable">
+          <End Type="JustSay.Model.Member" Multiplicity="1" Role="Members" />
+          <End Type="JustSay.Model.Funny" Multiplicity="*" Role="Funnies" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Funnies">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Members_ToTable">
+          <End Type="JustSay.Model.Role" Multiplicity="1" Role="Roles" />
+          <End Type="JustSay.Model.Member" Multiplicity="*" Role="Members" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_ToFromID">
+          <End Type="JustSay.Model.Member" Multiplicity="1" Role="Members" />
+          <End Type="JustSay.Model.Message" Multiplicity="*" Role="Messages" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="FromID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_ToToID">
+          <End Type="JustSay.Model.Member" Multiplicity="1" Role="Members" />
+          <End Type="JustSay.Model.Message" Multiplicity="*" Role="Messages" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="ToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relations_ToTable">
+          <End Type="JustSay.Model.Member" Multiplicity="1" Role="Members" />
+          <End Type="JustSay.Model.Relation" Multiplicity="*" Role="Relations" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Relations">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmailQueue">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="ConfessID" Nullable="false" Type="Int32" />
+          <Property Name="RelationID" Nullable="false" Type="Int32" />
+          <Property Name="Email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="Time" Precision="3" Type="DateTime" />
+          <NavigationProperty Name="Confess" Relationship="JustSay.Model.FK_EmailQueue_ToConfess" FromRole="EmailQueue" ToRole="Confess" />
+          <NavigationProperty Name="Relation" Relationship="JustSay.Model.FK_EmailQueue_ToRelation" FromRole="EmailQueue" ToRole="Relation" />
+        </EntityType>
+        <EntityType Name="PhoneQueue">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="ConfessID" Nullable="false" Type="Int32" />
+          <Property Name="RelationID" Nullable="false" Type="Int32" />
+          <Property Name="Phone" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="Time" Precision="3" Type="DateTime" />
+          <NavigationProperty Name="Confess" Relationship="JustSay.Model.FK_PhoneQueue_ToConfess" FromRole="PhoneQueue" ToRole="Confess" />
+          <NavigationProperty Name="Relation" Relationship="JustSay.Model.FK_PhoneQueue_ToRelation" FromRole="PhoneQueue" ToRole="Relation" />
+        </EntityType>
+        <Association Name="FK_EmailQueue_ToConfess">
+          <End Type="JustSay.Model.Confess" Multiplicity="1" Role="Confess" />
+          <End Type="JustSay.Model.EmailQueue" Multiplicity="*" Role="EmailQueue" />
+          <ReferentialConstraint>
+            <Principal Role="Confess">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmailQueue">
+              <PropertyRef Name="ConfessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhoneQueue_ToConfess">
+          <End Type="JustSay.Model.Confess" Multiplicity="1" Role="Confess" />
+          <End Type="JustSay.Model.PhoneQueue" Multiplicity="*" Role="PhoneQueue" />
+          <ReferentialConstraint>
+            <Principal Role="Confess">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PhoneQueue">
+              <PropertyRef Name="ConfessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailQueue_ToRelation">
+          <End Type="JustSay.Model.Relation" Multiplicity="1" Role="Relation" />
+          <End Type="JustSay.Model.EmailQueue" Multiplicity="*" Role="EmailQueue" />
+          <ReferentialConstraint>
+            <Principal Role="Relation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmailQueue">
+              <PropertyRef Name="RelationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhoneQueue_ToRelation">
+          <End Type="JustSay.Model.Relation" Multiplicity="1" Role="Relation" />
+          <End Type="JustSay.Model.PhoneQueue" Multiplicity="*" Role="PhoneQueue" />
+          <ReferentialConstraint>
+            <Principal Role="Relation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PhoneQueue">
+              <PropertyRef Name="RelationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Funnies_ToConfess">
+          <End Type="JustSay.Model.Confess" Multiplicity="0..1" Role="Confess" />
+          <End Type="JustSay.Model.Funny" Multiplicity="*" Role="Funny" />
+          <ReferentialConstraint>
+            <Principal Role="Confess">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Funny">
+              <PropertyRef Name="ConfessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pro">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="PostID" Nullable="false" />
+          <Property Type="Int32" Name="TypeID" Nullable="false" />
+          <Property Type="String" Name="TypeName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Info" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStart" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DeadLine" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JustSayModelStoreContainer" CdmEntityContainer="JustSayEntities">
+          <EntitySetMapping Name="ActionLogs">
+            <EntityTypeMapping TypeName="JustSay.Model.ActionLog">
+              <MappingFragment StoreEntitySet="ActionLog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ClientIP" ColumnName="ClientIP" />
+                <ScalarProperty Name="AdminReplyTime" ColumnName="AdminReplyTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="JustSay.Model.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="FunnyID" ColumnName="FunnyID" />
+                <ScalarProperty Name="Up" ColumnName="Up" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Confesses">
+            <EntityTypeMapping TypeName="JustSay.Model.Confess">
+              <MappingFragment StoreEntitySet="Confesses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Up" ColumnName="Up" />
+                <ScalarProperty Name="Click" ColumnName="Click" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="IsSms" ColumnName="IsSms" />
+                <ScalarProperty Name="FlashUrl" ColumnName="FlashUrl" />
+                <ScalarProperty Name="MusicUrl" ColumnName="MusicUrl" />
+                <ScalarProperty Name="ToEmail" ColumnName="ToEmail" />
+                <ScalarProperty Name="ToPhone" ColumnName="ToPhone" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="ViewName" ColumnName="ViewName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Funnies">
+            <EntityTypeMapping TypeName="JustSay.Model.Funny">
+              <MappingFragment StoreEntitySet="Funnies">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Up" ColumnName="Up" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="ConfessID" ColumnName="ConfessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="JustSay.Model.Member">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+                <ScalarProperty Name="LastVisit" ColumnName="LastVisit" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="RoleDeadLine" ColumnName="RoleDeadLine" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="LastPostTime" ColumnName="LastPostTime" />
+                <ScalarProperty Name="MessageCount" ColumnName="MessageCount" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="JustSay.Model.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FromID" ColumnName="FromID" />
+                <ScalarProperty Name="ToID" ColumnName="ToID" />
+                <ScalarProperty Name="FromName" ColumnName="FromName" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relations">
+            <EntityTypeMapping TypeName="JustSay.Model.Relation">
+              <MappingFragment StoreEntitySet="Relations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+                <ScalarProperty Name="FromName" ColumnName="FromName" />
+                <ScalarProperty Name="FromPhone" ColumnName="FromPhone" />
+                <ScalarProperty Name="FromEmail" ColumnName="FromEmail" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="ToPhone" ColumnName="ToPhone" />
+                <ScalarProperty Name="ToEmail" ColumnName="ToEmail" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="JustSay.Model.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToDoLists">
+            <EntityTypeMapping TypeName="JustSay.Model.ToDoList">
+              <MappingFragment StoreEntitySet="ToDoLists">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailQueues">
+            <EntityTypeMapping TypeName="JustSay.Model.EmailQueue">
+              <MappingFragment StoreEntitySet="EmailQueue">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RelationID" ColumnName="RelationID" />
+                <ScalarProperty Name="ConfessID" ColumnName="ConfessID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhoneQueues">
+            <EntityTypeMapping TypeName="JustSay.Model.PhoneQueue">
+              <MappingFragment StoreEntitySet="PhoneQueue">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="RelationID" ColumnName="RelationID" />
+                <ScalarProperty Name="ConfessID" ColumnName="ConfessID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pros">
+            <EntityTypeMapping TypeName="JustSay.Model.Pro">
+              <MappingFragment StoreEntitySet="Pro">
+                <ScalarProperty Name="DeadLine" ColumnName="DeadLine" />
+                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>

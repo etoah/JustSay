@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Justsay.Models.Confess>
+@{
+    Layout = null;
+}
+<style>
+    .grid {
+    width:90%;
+    margin-right:auto;
+    margin-left:auto;
+    }
+</style>
+    @foreach (var item in Model)
+    {
+
+        <div class='grid'>
+            @if (!item.ImgUrl.IsNullOrEmpty())
+            {<div class='imgholder'>
+                <img src='/Upload/Img/@item.ImgUrl' alt='向 @item.ToName 表白' />
+            </div>
+            }
+
+            <h4>To:@item.ToName </h4>
+            <p>
+                @item.Content.SubstringLength(50)
+            </p>
+            <div class='msg'>
+                    <span id="up@(item.ID)">
+                        @Ajax.ActionLink(item.Up.ToString(), "Up", new { id = item.ID },
+                new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "up" + item.ID }, new { @class = "glyphicon glyphicon-thumbs-up" })</span>
+
+
+                    <span class="glyphicon glyphicon-eye-open">@item.Click</span>
+                    <span class='r'>@Html.ActionLink("查看", "Details", new { id = item.ID })</span>
+                
+
+            </div>
+
+        </div>
+    }

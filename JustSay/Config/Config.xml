@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<appSettings>
+  <add key="webpages:Version" value="1.0.0.0" />
+  <add key="ClientValidationEnabled" value="true" />
+  <add key="UnobtrusiveJavaScriptEnabled" value="true" /> 
+  
+<!--~~~~~~~~~~~~~~~加密设置~~~~~~~~~~~~~~~~~~-->
+  <add key="userMainKey" value="userMainKey" />
+  <add key="adminCookieEncryptKey" value="adminCookieEncryptKey" />
+  <add key="ConfessUpCookieName" value="Config" />
+  <add key="FunnyUpCookieName" value="iConfig" />
+  <add key="UidEnCryptKey" value="ilovsweet" />
+  <add key="CommentUpCookieName" value="haha" />
+  <!--~~~~~~~~~~~~~~~加密设置结束~结束结束结束结束结束结束结束结束结束结束结束结束结束结束~~~~~~~~~~~~~~~~~-->
+  
+  
+  
+  
+<!--~~~~~~~~~~~~~~~UI设置~~~~~~~~~~~~~~~~~~-->
+  <add key="HotDefaultImg" value="default亲亲.jpg" />
+  <add key="ProfessPageSize" value="20" />
+  <add key="WaterMark" value="www.justsay.cn|表白" />
+<!--~~~~~~~~~~~~~~~UI设置结束结束结束结束结束结束结束结束结束结束结束结束结束结束结束结束结束结束~~~~~~~~~~~~~~~~~~-->
+
+  <!--~~~~~~~~~~~~~~~热度设置设置~~~~~~~~~~~~~~~~~~-->
+  <add key="HomeHotFunnyDay" value="520" />
+  <add key="HomeHotConfessDay" value="520" />
+  <add key="DefaultFunnyHomeHotByDay" value="520" />
+  <add key="DefaultConfessHomeHotByDay" value="520" />
+  <add key="IsReviewFunny" value="0" />
+  <add key="IsControlMessage" value="0" />
+  <add key="PostTimeLimit" value="3" />
+  <add key="ConfessHotControlByDay" value="500" />
+  <!--~~~~~~~~~~~~~~~热度设置结束结束结束结束结束结束结束结束结束结束结束结束结束结束结束结束结束结束~~~~~~~~~~~~~~~~~~-->
+  
+  
+  
+  
+  
+  <!-- 连接字符串是否加密-->
+  <add key="ConStringEncrypt" value="false" />
+  <add key="SqlServer_RM_DB" value="Data Source=(LocalDB)\v11.0;AttachDbFilename=E:\Computer language\ASP.NET开发案例\ASP.NET通用权限管理系统源代码（含文档、数据库）\src\数据库\RM_DB.mdf;Integrated Security=True;Connect Timeout=30" />
+<!-- 系统默认登录账户 -->
+
+  
+  
+
+
+  <!--邮件地址 可用三个邮箱-->
+  <add key="MailUser" value="justsaylove@163.com" />
+  <!--邮件显示名-->
+  <add key="MailName" value="JustSay" />
+  <!--SMTP服务器-->
+  <add key="MailHost" value="smtp.163.com"/>
+  <!---->
+  <add key="MailPwd" value="Duan@justsay" />
+  
+  
+  
+
+
+
+  <add key="CurrentUserName" value="Administrator" />
+  <!-- 系统默认登录密码 -->
+  <add key="CurrentPassword" value="2A1B132C0E64FA299B014B39F7DE5C2F" />
+  <!-- 是否启动服务器缓存-->
+  <add key="IsCache" value="false" />
+  <!-- 服务器缓存设置时间（分钟）-->
+  <add key="TimeCache" value="30" />
+  <!-- 是否自动重启IIS-->
+  <add key="IsRestartIIS" value="false" />
+  <!-- 自动重启IIS设置时间（每天凌晨05点）-->
+  <add key="RestartIISTime" value="22:33:00" />
+  <!-- 是否写日志-->
+  <add key="LogIsWrite" value="true" />
+  <!-- 系统日志保存路径-->
+  <add key="LogFilePath" value="D:\log" />
+  <!-- 允许恢复数据库-->
+  <add key="IsRecoverData" value="false" />
+  <!-- 是否启动自动备份数据库-->
+  <add key="IsBackupsData" value="false" />
+  <!-- 自动启动备份数据库设置时间（每天凌晨05点）-->
+  <add key="BackupsDataTime" value="05:00:00" />
+  <!-- 备份数据库设置保存路径 -->
+  <add key="BackupsDataPath" value="F:\Kylix\通用权限管理\src\RM.Web\DataBackups" />
+  <!-- 发出系统异常错误邮箱的地址 -->
+  <add key="ErrorReportMailUserName" value="812431372@qq.com" />
+
+  
+  <!-- 软件注册码 -->
+  <add key="RegistrationCode" value="2A1B132C0E64FA299B014B39F7DE5C2F" />
+  <!-- 公司信息 -->
+  <add key="CustomerCompanyName" value="XXX有限公司" />
+  <!-- 软件名称 -->
+  <add key="SoftName" value="JustSay" />
+  <!-- 当前软件版本 -->
+  <add key="Version" value="0.0.0.1" />
+
+  
+  
+  
+  
+
+  
+  
+</appSettings>

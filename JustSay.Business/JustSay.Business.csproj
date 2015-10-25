@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F4C0749-8E34-4D63-92B4-1FB48E7CFB99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JustSay.Business</RootNamespace>
+    <AssemblyName>JustSay.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Justsay.Models\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcPager">
+      <HintPath>..\..\..\..\MVC\MvcPagerDemoMvc3\bin\MvcPager.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseBusiness.cs" />
+    <Compile Include="Inform.cs" />
+    <Compile Include="Interface\IBusiness.cs" />
+    <Compile Include="Interface\IMessageBusiness.cs" />
+    <Compile Include="Interface\IEmailQueueBusiness.cs" />
+    <Compile Include="Interface\IPhoneQueueBusiness.cs" />
+    <Compile Include="Interface\IProBusiness.cs" />
+    <Compile Include="MessageBusiness.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interface\IMemberBusiness.cs" />
+    <Compile Include="MemberBusiness.cs" />
+    <Compile Include="Interface\IConfessBusiness.cs" />
+    <Compile Include="ConfessBusiness.cs" />
+    <Compile Include="Interface\ICommentBusiness.cs" />
+    <Compile Include="CommentBusiness.cs" />
+    <Compile Include="FunnyBusiness.cs" />
+    <Compile Include="Interface\IFunnyBusiness.cs" />
+    <Compile Include="RelationBusiness.cs" />
+    <Compile Include="Interface\IRelationBusiness.cs" />
+    <Compile Include="Interface\IRoleBusiness.cs" />
+    <Compile Include="RoleBusiness.cs" />
+    <Compile Include="ToDoListBusiness.cs" />
+    <Compile Include="Interface\IToDoListBusiness.cs" />
+    <Compile Include="Interface\IActionLogBusiness.cs" />
+    <Compile Include="ActionLogBusiness.cs" />
+    <Compile Include="EmailQueueBusiness.cs" />
+    <Compile Include="PhoneQueueBusiness.cs" />
+    <Compile Include="ProBusiness.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JustSay.Common\JustSay.Common.csproj">
+      <Project>{f1dac157-5cf0-4abe-ab30-e1b0eada5354}</Project>
+      <Name>JustSay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JustSay.Config\JustSay.Config.csproj">
+      <Project>{bfd11385-6c93-49d3-a7ed-3286634252c1}</Project>
+      <Name>JustSay.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Justsay.Models\Justsay.Models.csproj">
+      <Project>{06f3a494-de9c-449e-8abf-581128bb1bb1}</Project>
+      <Name>Justsay.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

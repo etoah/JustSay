@@ -1,0 +1,24 @@
+﻿@model Justsay.Models.Comment
+
+    
+     @using (Html.BeginForm("Create","Comment")) {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Comment</legend>
+    
+
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Content)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Content)
+                @Html.ValidationMessageFor(model => model.Content)
+            </div>
+              @Html.TextBoxFor(model => model.FunnyID, new { hidden="hidden",value=ViewBag.FunnyID})
+            <p>
+                <input type="submit" value="回复" />
+            </p>
+        </fieldset>
+    }
+

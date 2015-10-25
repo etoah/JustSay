@@ -1,0 +1,135 @@
+﻿@model Justsay.Models.Relation
+@{
+    ViewBag.Title = "暗恋TA";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+@if (ViewData.Keys.Contains("ConfessID"))
+{<div class="well well-lg">
+    <h2>你的表白发表成功，从此你离幸福又近了一步！</h2>
+    <p>
+        @if (ViewBag.IsEmailSuccess)
+        {
+            <small class="text-success">邮件发送成功！</small>
+        }
+        else
+        {
+            <small class="text-danger">邮件发送失败！</small>
+        }
+        @if (ViewBag.IsSMSSuccess)
+        {
+            <small class="text-success">短信发送成功！你消耗了50个节操</small>
+        }
+        else
+        {
+            <small class="text-danger">@ViewBag.IsSMSMsg.ToString() 短信发送失败或没有填写手机号！</small>
+        }
+        @if (ViewBag.IsEmailSuccess && ViewBag.IsSMSSuccess)
+        {
+            <small class="text-info">已通过邮件、短信向你们通知你们哦！！！</small>
+        }
+    </p>
+    
+    你可以继续发表暗恋，当TA也暗恋你时，可以通知你们哦！或者 @Html.ActionLink("查看表白", "Details", "Confess", new { id = ViewData["ConfessID"] }, new { })</div>
+}
+
+@using (Html.BeginForm("Create", "Relation"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>暗恋TA</legend>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="/Content/Images/暗恋-Post.jpg" style="width:100%;" />
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FromName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.FromName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FromName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FromPhone)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.FromPhone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FromPhone)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FromEmail)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.FromEmail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FromEmail)
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ToName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.ToName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ToName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ToPhone)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.ToPhone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ToPhone)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ToEmail)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.ToEmail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ToEmail)
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <br />
+        <p class="text-right">
+            <input type="submit" value="发布" class="btn btn-default btn-lg" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("返回", "Index")
+</div>
+<script>
+    $(document).ready(function () {
+        $("li:eq(3)").addClass("active")
+    })
+
+</script>
+
+
+<div class="well well-lg">
+             <hr />
+            <h3>投稿须知</h3>
+            <ol>
+                <li>网站会为你保密你和TA的信息。</li> <hr />              
+                <li>最输入正确的联系方式以确保我们能联系到你们</li> <hr />
+            </ol>
+
+        </div>

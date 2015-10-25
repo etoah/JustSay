@@ -1,0 +1,78 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<Justsay.Models.Member>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Manage.cshtml";
+}
+
+<h2>用户管理页面</h2>
+
+<p>
+
+    <form class="navbar-form navbar-left" role="search">
+
+        <div class="input-group">
+            <input type="text" id="id" class="form-control" placeholder="输入ID">
+            <input type="hidden" id="controltype" value="Account" class="form-control" placeholder="输入ID">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">操作 <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    
+                    <li><a href="#details" data-control="details">查看</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#Edit" data-control="Edit">修改</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#delete" data-control="delete">删除</a></li>
+                    
+                </ul>
+            </div>
+            <!-- /btn-group -->
+        </div>
+        <!-- /input-group -->
+
+    </form>
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>Email
+        </th>
+        <th>JoinDate
+        </th>
+        <th>ShowName
+        </th>
+
+        <th>LastPostTime
+        </th>
+        <th>Role
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoinDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.LastPostTime)
+            </td>
+            <td>
+                @item.Role.RoleName
+            </td>
+
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

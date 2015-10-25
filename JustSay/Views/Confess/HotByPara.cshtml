@@ -1,0 +1,61 @@
+﻿@model PagedList<Justsay.Models.Confess>
+@{
+    ViewBag.Title = "精华表白";
+}
+<script src="@Url.Content("~/Scripts/jquery.masonry.js")" type="text/javascript"></script>
+<h2>热门表白</h2>
+
+<p>
+    <a href="/Confess/Create" class="btn btn-primary" role="button">表白</a>
+</p>
+<div id="container">
+
+    @foreach (var item in Model)
+    {
+
+        <div class='grid'>
+            @if (!item.ImgUrl.IsNullOrEmpty())
+            {<div class='imgholder'>
+                <img src='/Upload/Img/@item.ImgUrl' alt='向 @item.ToName 表白' />
+            </div>
+            }
+            <h4>To:@item.ToName </h4>
+            <p>
+                @item.Content.SubstringLength(50)
+            </p>
+
+            <div class='msg'>
+                <span id="up@(item.ID)">
+                    @Ajax.ActionLink(item.Up.ToString(), "Up", new { id = item.ID },
+                new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "up" + item.ID }, new { @class = "glyphicon glyphicon-thumbs-up" })</span>
+
+
+                <span class="glyphicon glyphicon-eye-open">@item.Click</span>
+
+
+                <span class='r'>@Html.ActionLink("查看详细", "Details", new { id = item.ID })</span>
+            </div>
+
+        </div>
+    }
+</div>
+@Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id" }, new { id = "flickrpager" })
+@{Html.RegisterMvcPagerScriptResource();}
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $("li:eq(2)").addClass("active");
+        layout();
+
+    });
+
+    function layout() {
+        var $container = $('#container');
+        $container.imagesLoaded(function () {
+            $container.masonry({
+                itemSelector: '.grid',
+                gutterWidth: 22,
+            });
+        });
+    };
+</script>

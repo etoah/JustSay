@@ -1,0 +1,48 @@
+﻿@model Justsay.Models.Pro
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Pro</legend>
+
+    <div class="display-label">PostID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostID)
+    </div>
+
+    <div class="display-label">TypeID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeID)
+    </div>
+
+    <div class="display-label">TypeName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeName)
+    </div>
+
+    <div class="display-label">Info</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Info)
+    </div>
+
+    <div class="display-label">TimeStart</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimeStart)
+    </div>
+
+    <div class="display-label">DeadLine</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeadLine)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,44 @@
+﻿@model PagedList<Justsay.Models.Relation>
+@{
+    ViewBag.Title = "最新暗恋";
+}
+<div class="row">
+    <div class="col-md-12">
+                <div class="jumbotron relationhead">
+                     <h4> 两个人互相暗恋却彼此不知？怎么办？</h4>
+                     <br />但是有没有可能两个人都是这样，却又互相不知？就这么纠结着？  
+                     <p>你可以发表<a href="/Relation/Create" class="btn btn-primary" role="button">暗恋</a></p>
+                     <br />当两个人暗恋时，就说justsay 会通知你们俩
+            
+        </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">最新暗恋 @Html.ActionLink("发表暗恋", "Create", null, new { @class="pull-right"})</h3>
+            </div>            
+        <div class="panel-body">
+        @foreach (var item in Model)
+        { 
+            <div class="alert alert-info relalist">
+                <a href="/message/create/?idstr=@item.MemberID.UidEncrypt()&name=@item.ShowName.DefaultValue("佚名")" data-toggle="modal" data-target="#justsaymodal" >@item.ShowName.DefaultValue("佚名") </a>
+                <img src="/Content/Images/一箭心.png" />
+                @Html.DisplayFor(modelItem => item.ToName)
+                <span><small>@Html.DisplayFor(modelItem => item.Time)</small> </span>
+                <span><small>@Html.ActionLink("详细", "Details", new { id = item.ID })</small></span>
+            </div>
+
+        }
+        @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id" })
+         </div>
+    </div>
+        </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("li:eq(3)").addClass("active")
+    })
+
+</script>

@@ -1,0 +1,63 @@
+﻿@model Justsay.Models.Funny
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>你确认要删除吗?</h3>
+<fieldset>
+    <legend>Funny</legend>
+
+    <div class="display-label">Member</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Member.Email)
+    </div>
+
+    <div class="display-label">ShowName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShowName)
+    </div>
+
+    <div class="display-label">Content</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Up</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Up)
+    </div>
+
+    <div class="display-label">Time</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Time)
+    </div>
+
+    <div class="display-label">CommentCount</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommentCount)
+    </div>
+
+    <div class="display-label">ImgUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImgUrl)
+    </div>
+
+    <div class="display-label">ConfessID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ConfessID)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

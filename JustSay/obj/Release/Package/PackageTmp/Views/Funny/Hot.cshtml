@@ -1,0 +1,43 @@
+﻿@model IPagedList<Justsay.Models.Funny>
+@{
+    Layout = null;
+    ViewBag.Title = "热门";
+}
+
+@foreach (var item in Model)
+{
+    
+    
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+             <p><pre>@item.Content.SubstringLength(300)  @Html.ActionLink("查看详细", "Details", new { id = item.ID }) </pre></p>
+
+            @if (!string.IsNullOrEmpty(item.ImgUrl))
+            {
+                <img alt="恋爱笑话" src="/Upload/Img/@item.ImgUrl" class="funnyimg"/>
+            }
+        </div>
+        <div class="panel-footer">
+                    
+                        <span id="up@(item.ID)" class="up">
+                            @Ajax.ActionLink(item.Up.ToString(), "Up", new { id = item.ID },
+                new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "up" + item.ID }, new { @class = "glyphicon glyphicon-thumbs-up" })
+                        </span>
+
+                        <span >
+                            @Html.ActionLink(item.CommentCount.ToString(), "Details", new { id = item.ID }, new { @class="glyphicon glyphicon-comment"}) 
+                        </span>
+                        <span>
+                            @if (item.ConfessID != null)
+                            {
+                                @Html.ActionLink("表白", "details", "confess", new { id = item.ConfessID }, new { @class="glyphicon glyphicon-tag"})
+                            }
+                        </span>
+                    
+                </div>
+    </div>      
+     
+}
+
+@Html.ActionLink("查看更多", "index", "Funny", new { pageindex = 1 }, new { @class="btn btn-primary btn-lg"})

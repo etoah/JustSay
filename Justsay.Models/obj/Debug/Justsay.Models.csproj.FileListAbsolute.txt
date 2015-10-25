@@ -1,0 +1,17 @@
+E:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\Justsay.Models.dll.config
+E:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\Justsay.Models.dll
+E:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\Justsay.Models.pdb
+E:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\EntityFramework.dll
+E:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\EntityFramework.xml
+E:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\WEB\JustSay\Code2\JustSay\Justsay.Models\obj\Debug\Justsay.Models.dll
+E:\WEB\JustSay\Code2\JustSay\Justsay.Models\obj\Debug\Justsay.Models.pdb
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\Justsay.Models.dll.config
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\Justsay.Models.dll
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\Justsay.Models.pdb
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\EntityFramework.dll
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\EntityFramework.xml
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\obj\Debug\Justsay.Models.csprojResolveAssemblyReference.cache
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\obj\Debug\Justsay.Models.dll
+F:\WEB\JustSay\Code2\JustSay\Justsay.Models\obj\Debug\Justsay.Models.pdb

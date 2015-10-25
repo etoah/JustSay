@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="279905245ce94d93a8d57358620478ef" Name="关系图1" ZoomLevel="97">
+        <EntityTypeShape EntityType="JustSay.Model.ActionLog" PointX="1.125" PointY="6.125" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustSay.Model.Comment" PointX="6.625" PointY="9.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustSay.Model.Confess" PointX="5" PointY="4.25" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustSay.Model.Funny" PointX="5" PointY="10" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustSay.Model.Member" PointX="3.25" PointY="7.375" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustSay.Model.Message" PointX="3.25" PointY="4" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustSay.Model.Relation" PointX="1" PointY="8.875" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustSay.Model.Role" PointX="1" PointY="12.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustSay.Model.ToDoList" PointX="6.625" PointY="7" Width="1.5" IsExpanded="true" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_ActionLog_ToMember" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_Comments_ToFunnies" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_Comments_ToTable" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_Table_ToTable" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_Funnies_ToTable" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_Members_ToTable" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_Messages_ToFromID" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_Messages_ToToID" />
+        <AssociationConnector ManuallyRouted="false" Association="JustSay.Model.FK_Relations_ToTable" />
+        <EntityTypeShape EntityType="JustSay.Model.EmailQueue" PointX="8.5" PointY="7.625" Width="1.5" />
+        <EntityTypeShape EntityType="JustSay.Model.PhoneQueue" PointX="8.25" PointY="10.75" Width="1.5" />
+        <AssociationConnector Association="JustSay.Model.FK_EmailQueue_ToConfess" />
+        <AssociationConnector Association="JustSay.Model.FK_PhoneQueue_ToConfess" />
+        <AssociationConnector Association="JustSay.Model.FK_EmailQueue_ToRelation" />
+        <AssociationConnector Association="JustSay.Model.FK_PhoneQueue_ToRelation" />
+        <AssociationConnector Association="JustSay.Model.FK_Funnies_ToConfess" />
+        <EntityTypeShape EntityType="JustSay.Model.Pro" Width="1.5" PointX="8.375" PointY="5.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

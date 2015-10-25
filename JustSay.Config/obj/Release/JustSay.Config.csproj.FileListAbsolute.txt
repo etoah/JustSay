@@ -1,0 +1,10 @@
+E:\WEB\JustSay\CODE\JustSay.Config\bin\Release\JustSay.Config.dll
+E:\WEB\JustSay\CODE\JustSay.Config\bin\Release\JustSay.Config.pdb
+E:\WEB\JustSay\CODE\JustSay.Config\obj\Release\JustSay.Config.csprojResolveAssemblyReference.cache
+E:\WEB\JustSay\CODE\JustSay.Config\obj\Release\JustSay.Config.dll
+E:\WEB\JustSay\CODE\JustSay.Config\obj\Release\JustSay.Config.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Config\bin\Release\JustSay.Config.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Config\bin\Release\JustSay.Config.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Config\obj\Release\JustSay.Config.csprojResolveAssemblyReference.cache
+E:\WEB\JustSay\Code2\JustSay\JustSay.Config\obj\Release\JustSay.Config.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Config\obj\Release\JustSay.Config.pdb

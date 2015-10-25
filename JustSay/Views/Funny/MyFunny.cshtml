@@ -1,0 +1,82 @@
+﻿@model IPagedList<Justsay.Models.Funny>
+
+@{
+    ViewBag.Title = "我的点滴";
+    Layout = "~/Views/Shared/_MySpace.cshtml";
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">我的点滴</h3>
+    </div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+           内容
+        </th>
+
+        <th>
+            Up
+        </th>
+        <th>
+            Time
+        </th>
+        <th>
+            评论数
+        </th>
+        <th>
+            状态
+        </th>
+
+        <th>操作</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @item.Content.SubstringLength(25)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Up)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentCount)
+        </td>
+        <td>
+            @if (item.Status == 2)
+            {
+                <span class="text-danger">未通过</span>
+                 
+            }
+            else if (item.Status == 3)
+            {
+                <span class="text-success">通过</span>
+            }
+            else
+            {
+                <span class="text-info">审核中</span>
+                 
+            }
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("查看", "Details", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+@Ajax.Pager(Model,
+    new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = false },
+    new MvcAjaxOptions { UpdateTargetId = "MyFunny", LoadingElementId = "loadingDiv", OnBegin = "$('#MyFunny').fadeOut('slow')", OnComplete = "$('#MyFunny').fadeIn('slow')" },
+    new { @class = "pager" })
+
+    </div>

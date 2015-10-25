@@ -1,0 +1,72 @@
+﻿@using JustSay.Config;
+@{
+    ViewBag.Title = "JustSay就说，你其实并不孤单。";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="well">JustSay,是全球第一个能用短信信表白的网站。</div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-8">
+
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">最热 点滴<a href="/Funny/HotByDay" class="pull-right">更多>>></a></h3>
+            </div>
+            <div class="panel-body">
+                @{Html.RenderAction("Hot", "funny", new { id = HotConfig.HomeHotFunnyDay.ToString() });}
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-4">
+
+        @*  @{Html.RenderPartial("~/Views/Home/introduce.cshtml");}*@
+
+        <div class="jumbotron">
+            <p>JustSay 是一个分享社区，你可以分享你和TA之间的点滴。</p>
+            <p>可以表白、</p>
+            <p>暗恋、</p>
+            <p>就说， 爱，你就说出来！</p>
+            <div class="btn-group">
+                <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
+                    发表 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="/confess/create">表白</a></li>
+                    <li><a href="/Relation/create">暗恋</a></li>
+                    <li><a href="/Funny/create">点滴</a></li>
+
+                </ul>
+            </div>
+            <div class="btn-group">
+                <a type="button" class="btn btn-default btn-lg" href="/home/introduce">更多 </a>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">最热表白 <a href="/confess/HotByHour" class="pull-right">更多>>></a></h3>
+            </div>
+            <div class="panel-body">
+                @{Html.RenderAction("hot", "Confess");}
+            </div>
+        </div>
+        @{Html.RenderAction("hot", "Relation");}
+    </div>
+
+</div>
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $("li:eq(0)").addClass("active")
+    })
+
+</script>

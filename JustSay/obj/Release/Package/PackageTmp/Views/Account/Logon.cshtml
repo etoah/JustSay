@@ -1,0 +1,83 @@
+﻿@{
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    <link href="/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+    <style>
+        .maindiv {
+            width: 100%;
+        }
+    </style>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="ModalTitle">登录</h4>
+    </div>
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_NoHeader.cshtml";
+        
+    <style>
+        body {
+            background-color: #444 !important;
+            background-image: url();
+        }
+
+        .maindiv {
+            width: 500px;
+        }
+    </style>
+    }
+
+}
+
+
+
+
+
+
+
+
+<div class="modal-body">
+
+
+
+    <div class="maindiv">
+        @using (Html.BeginForm("logon", "account", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+        {
+    
+            <h2 class="form-signin-heading">请登录</h2>
+
+
+
+            @Html.TextBox("email", "", new { @class = "form-control", placeholder = "邮箱" })
+            @Html.ValidationMessage("email")
+
+
+            @Html.Password("password", "", new { @class = "form-control", placeholder = "密码" })
+            @Html.ValidationMessage("password")
+
+
+
+            <button class="btn btn-lg btn-primary btn-block " type="submit">登录</button>  
+
+            <div class="checkbox">
+                @Html.ActionLink("忘记密码", "Iforget", null, new { @class = "pull-left" })
+                @Html.ActionLink("注册", "create", null, new { @class = "btn btn-success pull-right" })
+            </div>
+
+        }
+
+        <div>
+            @Html.ActionLink("返回主页", "Index", "Home", null, new { @class = "btn pull-left" })
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+

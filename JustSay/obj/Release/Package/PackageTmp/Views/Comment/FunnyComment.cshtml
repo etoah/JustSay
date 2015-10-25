@@ -1,0 +1,51 @@
+﻿@model PagedList<Justsay.Models.Comment>
+@{
+    int count = 1;
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <h4><span class="label label-info">评论</span></h4>
+
+
+        @foreach (var item in Model)
+        {
+            <hr />
+            <div class="clearfix"></div>
+            <p class="text-muted">
+                <span class="pull-left"><a href="/message/create/?idstr=@item.MemberID.UidEncrypt()&name=@item.ShowName.DefaultValue("佚名")" data-toggle="modal" data-target="#justsaymodal" >@item.ShowName.DefaultValue("佚名") </a>
+                    说：</span>
+                <span class="small pull-right">@Html.DisplayFor(modelItem => item.Time)</span>
+            </p>
+            <div class="clearfix"></div>
+            <p>
+                <span class="pull-left">@Html.DisplayFor(modelItem => item.Content)</span>
+
+                <span id="cup@(item.ID)" class="pull-right">
+                    @Ajax.ActionLink(item.Up.ToString(), "Up", "Comment", new { id = item.ID },
+                new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "cup" + item.ID }, new { @class = ".btn glyphicon glyphicon-thumbs-up" })
+                </span>
+                <span class="pull-right">
+                    @if (User.Identity.Name == item.MemberID.ToString() || User.IsInRole("Admin,SuperAdmin,Owner"))
+                    {       
+                        
+                        @: &nbsp @Html.ActionLink("删除", "Delete", "Comment", new { id = item.ID }, null) &nbsp|
+        }</span>
+            </p>
+            <div class="clearfix"></div>
+        }
+
+
+        @Ajax.Pager(Model, "TwoPara", new { id = ViewBag.FunnyID },
+    new PagerOptions { PageIndexParameterName = "pageindex", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = false },
+    new MvcAjaxOptions { UpdateTargetId = "comment", LoadingElementId = "loadingDiv", OnBegin = "$('#comment').fadeOut('slow')", OnComplete = "$('#comment').fadeIn('slow')" }, new { @class = "pager" })
+
+    </div>
+</div>
+
+
+
+
+

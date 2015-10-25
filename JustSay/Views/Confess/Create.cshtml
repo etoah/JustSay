@@ -1,0 +1,182 @@
+﻿@model Justsay.Models.Confess
+@{
+    ViewBag.Title = "表白";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="well well-lg">
+            <h2>表白</h2>
+            @using (Html.BeginForm("Create", "confess", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Content)（<span class="text-danger">必填</span>）
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = "7", placeholder = "内容" })
+                        @Html.ValidationMessageFor(model => model.Content)
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ToEmail)（<span class="text-danger">必填</span>）
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.ToEmail, new { @class = "form-control", placeholder = "Email" })
+                        @Html.ValidationMessageFor(model => model.ToEmail)
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ToName)（<span class="text-danger">必填</span>）
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.ToName, new { @class = "form-control", placeholder = "表白对象的真实姓名" })
+                        @Html.ValidationMessageFor(model => model.ToName)
+                    </div>
+                </div>@*
+    
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ViewName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.ViewName, new { @class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.ViewName)
+                    </div>
+                </div> 
+                *@<div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ImgUrl)
+                    </div>
+                    <div class="editor-field">
+                        <input id="File1" type="file" name="ImgUrl" class="form-control" />
+                    </div>
+                </div>
+                <div id="moreinfo" style="display: none">
+                    <div class="form-group">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ToPhone)
+                        </div>
+                        <div class="editor-field">
+
+                            @Html.TextBoxFor(model => model.ToPhone, new Dictionary<string, Object>() { { "class", "form-control" },{"data-trigger","hover"}, { "data-toggle", "popover" }, 
+                   { "title","说明" }, {"data-content" , "需要用50个节操币"},{"placeholder", "电话" },{"data-container","body"}})
+                            @Html.ValidationMessageFor(model => model.ToPhone)
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Message)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.Message, new Dictionary<string, Object>() { { "class", "form-control" },{"data-trigger","hover"}, { "data-toggle", "popover" }, 
+                   { "title","说明" }, {"data-content" , "留下一段话，或词。"},{"placeholder", "信息" },{"data-container","body"}})
+                            @Html.ValidationMessageFor(model => model.Message)
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.FlashUrl)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.FlashUrl, new Dictionary<string, Object>() { { "class", "form-control" },{"data-trigger","hover"}, { "data-toggle", "popover" }, 
+                   { "title","说明" }, {"data-content" , "暂时只支持优酷的Flash"},{"placeholder", "Flash地址" },{"data-container","body"}})
+                            @Html.ValidationMessageFor(model => model.FlashUrl)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.MusicUrl)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.MusicUrl, new Dictionary<string, Object>() { { "class", "form-control" },{"data-trigger","hover"}, { "data-toggle", "popover" }, 
+                   { "title","说明" }, {"data-content" , "暂时只支持虾米，的Flash地址"},{"placeholder", "音乐地址" },{"data-container","body"}})<a target="_blank" href='http://www.xiami.com/widget/isingle?spm=0.0.0.0.jhLuqO'>查找Falsh</a>
+                            @Html.ValidationMessageFor(model => model.MusicUrl)                          
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @if (ViewData["Validate"] != null)
+                    {
+                        <div id="captchaImage">
+                            @Html.MvcCaptcha()
+                            <input type="text" name="_mvcCaptchaText" id="_mvcCaptchaText" class="form-control" data-val="true" data-val-required="验证码不能为空" />
+                        </div>
+                    }
+                </div>
+                <p>
+                    <a id="more" class="btn btn-info pull-left">更多</a>
+                    <input type="submit"  id="loading-btn" data-loading-text="正在处理数据..." value="表白" class="btn btn-success pull-right" />
+                </p>
+            }
+
+            <div class="clearfix">
+            </div>
+            <div>
+                @Html.ActionLink("返回主页", "Index")
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="well well-lg">
+            <hr />
+            <h3>投稿须知</h3>
+            <ol>
+                <li>自己的表白，不含政治、色情、广告、诽谤、歧视等内容。</li>
+                <hr />
+                <li>表白时若有手机号时，只有发贴时 你的节操币多于50短信才发送。</li>
+                <hr />
+                <li>转载请注明出处。</li>
+                <hr />
+                <li>投稿内容著作权、版权归就说网站所有。</li>
+                <hr />
+            </ol>
+        </div>
+        <div class="well well-lg about" id="donate" style="display: none">
+            <h3>捐赠</h3>
+             <p>
+                就说是个人开发的应用，其中服务器和短信用了个人大量的资金，支持就说,以便就说更好的发展。
+            </p>
+            <p>支付宝：justsaypay@qq.com </p>
+            <img src="/Content/Images/alipay.png" class="img-thumbnail" />           
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+    $(document).ready(function () {
+        $('#loading-btn').click(function () {
+            var btn = $(this);
+            btn.button('loading');
+        });
+        $("#more").click(function () {
+            $("#moreinfo").show();
+            $("#donate").show();
+        })
+    });
+    $('#MusicUrl').popover();
+    $('#ToPhone').popover();
+    $('#FlashUrl').popover();
+    $('#Message').popover();
+$("li:eq(2)").addClass("active");
+
+</script>

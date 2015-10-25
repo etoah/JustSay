@@ -1,0 +1,16 @@
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\JustSay.Business.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\JustSay.Business.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\EntityFramework.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\JustSay.Common.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\JustSay.Config.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\Justsay.Models.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\MvcPager.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\JustSay.Common.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\JustSay.Config.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\Justsay.Models.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\EntityFramework.xml
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\MvcPager.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\bin\Release\zh-Hans\EntityFramework.resources.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\obj\Release\JustSay.Business.csprojResolveAssemblyReference.cache
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\obj\Release\JustSay.Business.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Business\obj\Release\JustSay.Business.pdb

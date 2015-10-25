@@ -1,0 +1,5 @@
+E:\WEB\JustSay\Code2\JustSay\Common\bin\Debug\Common.dll
+E:\WEB\JustSay\Code2\JustSay\Common\bin\Debug\Common.pdb
+E:\WEB\JustSay\Code2\JustSay\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\WEB\JustSay\Code2\JustSay\Common\obj\Debug\Common.dll
+E:\WEB\JustSay\Code2\JustSay\Common\obj\Debug\Common.pdb

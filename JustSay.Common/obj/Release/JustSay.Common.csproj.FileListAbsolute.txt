@@ -1,0 +1,14 @@
+E:\WEB\JustSay\CODE\JustSay.Common\bin\Release\RM.Common.dll
+E:\WEB\JustSay\CODE\JustSay.Common\bin\Release\RM.Common.pdb
+E:\WEB\JustSay\CODE\JustSay.Common\bin\Release\Microsoft.QualityTools.Testing.Fakes.dll
+E:\WEB\JustSay\CODE\JustSay.Common\obj\Release\JustSay.Common.csprojFakesResolveAssemblyReference.cache
+E:\WEB\JustSay\CODE\JustSay.Common\obj\Release\JustSay.Common.csprojResolveAssemblyReference.cache
+E:\WEB\JustSay\CODE\JustSay.Common\obj\Release\RM.Common.dll
+E:\WEB\JustSay\CODE\JustSay.Common\obj\Release\RM.Common.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Common\bin\Release\JustSay.Common.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Common\bin\Release\JustSay.Common.pdb
+E:\WEB\JustSay\Code2\JustSay\JustSay.Common\bin\Release\Microsoft.QualityTools.Testing.Fakes.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Common\obj\Release\JustSay.Common.csprojFakesResolveAssemblyReference.cache
+E:\WEB\JustSay\Code2\JustSay\JustSay.Common\obj\Release\JustSay.Common.csprojResolveAssemblyReference.cache
+E:\WEB\JustSay\Code2\JustSay\JustSay.Common\obj\Release\JustSay.Common.dll
+E:\WEB\JustSay\Code2\JustSay\JustSay.Common\obj\Release\JustSay.Common.pdb

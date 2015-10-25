@@ -1,0 +1,81 @@
+﻿@model Justsay.Models.Member
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Member</legend>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">JoinDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JoinDate)
+    </div>
+
+    <div class="display-label">ShowName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShowName)
+    </div>
+
+    <div class="display-label">LastVisit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastVisit)
+    </div>
+
+    <div class="display-label">QQ</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QQ)
+    </div>
+
+    <div class="display-label">Phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">RealName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RealName)
+    </div>
+
+    <div class="display-label">RoleDeadLine</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoleDeadLine)
+    </div>
+
+    <div class="display-label">Score</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Score)
+    </div>
+
+    <div class="display-label">Money</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Money)
+    </div>
+
+    <div class="display-label">LastPostTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastPostTime)
+    </div>
+
+    <div class="display-label">MessageCount</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageCount)
+    </div>
+
+    <div class="display-label">Role</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Role.RoleName)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

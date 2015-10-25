@@ -1,0 +1,65 @@
+﻿@model IPagedList<Justsay.Models.Confess>
+@{
+    Layout = "~/Views/Shared/_MySpace.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">我的表白</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <tr>
+                <th>内容
+                </th>
+                <th>时间
+                </th>
+                <th>Up
+                </th>
+                <th>点击
+                </th>
+                <th>ToName
+                </th>
+                <th>操作
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @item.Content.SubstringLength(20)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+
+                        @item.Up
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Click)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ToName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("详细", "Details", new { id = item.ID }) |
+             @Html.ActionLink("编辑", "Edit", new { id = item.ID }) |
+
+                        @Html.ActionLink("删除", "Delete", new { id = item.ID })
+
+                    </td>
+                   
+                </tr>
+            }
+
+        </table>
+        @Ajax.Pager(Model, "Default",
+    new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = false },
+    new MvcAjaxOptions { UpdateTargetId = "MyFunny", LoadingElementId = "loadingDiv", OnBegin = "$('#MyFunny').fadeOut('slow')", OnComplete = "$('#MyFunny').fadeIn('slow')" },
+    new { @class = "pager" })
+
+    </div>
+</div>

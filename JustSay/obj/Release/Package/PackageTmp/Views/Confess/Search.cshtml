@@ -1,0 +1,59 @@
+﻿@model PagedList<Justsay.Models.Confess>
+
+@{
+    ViewBag.Title = "搜索对" + ViewBag.Key.ToString()+ " 的表白";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-hover">
+        <tr>
+            <th>
+                ShowName
+            </th>
+            <th>
+                Content
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                ToEmail
+            </th>
+            
+            <th>
+                ToName
+            </th>            
+            <th>查看</th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+
+            <td>
+               <a href="/message/create/?idstr=@item.MemberID.UidEncrypt()&name=@item.ShowName.DefaultValue("佚名")" data-toggle="modal" data-target="#justsaymodal" >@item.ShowName.DefaultValue("佚名") </a>
+            </td>
+            <td>
+                @item.Content.SubstringLength(15)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>          
+            <td>
+                @item.ToEmail.HideEmail()
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.ToName)
+            </td>
+            
+            <td>
+               
+                @Html.ActionLink("查看", "Details", new { id=item.ID }) |
+               
+            </td>
+        </tr>
+    }
+    
+    </table>
+@Html.Pager(Model,new PagerOptions{PageIndexParameterName = "pageindex"})

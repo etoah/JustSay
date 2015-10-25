@@ -1,0 +1,17 @@
+﻿@model Justsay.Models.Relation
+
+<fieldset>
+    <legend>爱我的人</legend>
+
+
+
+    <div class="display-label">ShowName</div>
+    <div class="display-field">
+            @Html.ActionLink(Model.ShowName.IsNullOrEmpty()?"匿名":Model.ShowName,"create","Message",new{idstr=Model.MemberID.UidEncrypt(),name=Model.ShowName.IsNullOrEmpty()?"匿名":Model.ShowName},null)
+    </div>
+
+    <div class="display-label">Time</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Time)
+    </div>
+</fieldset>

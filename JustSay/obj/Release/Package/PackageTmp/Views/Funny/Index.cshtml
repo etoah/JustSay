@@ -1,0 +1,77 @@
+﻿@model PagedList<Justsay.Models.Funny>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>@ViewBag.Title </h4>
+<span class="label label-primary"><a href="/funny/new">最新</a></span>
+<span class="label label-info"><a href="/funny/HotByHour/24/1">24小时 最热</a></span>
+<span class="label label-warning"><a href="/funny/HotByDay/7/1">7天 最热</a></span>
+<span class="label label-danger"><a href="/funny/HotByDay/30/1">30天 最热</a></span>
+        @foreach (var item in Model)
+        {
+    
+    
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <p><pre>@item.Content.SubstringLength(300)  @Html.ActionLink("查看详细", "Details", new { id = item.ID }) </pre></p>
+
+                    @if (!string.IsNullOrEmpty(item.ImgUrl))
+                    {
+                        
+                        <a url="#justsaymodal" data-toggle="modal" data-target="#justsaymodal" data-imgurl="/upload/Img/@item.ImgUrl"><img class="funnyimg" alt="恋爱笑话" src="/Upload/Img/@item.ImgUrl"/> </a>
+                        
+                    }
+                </div>
+                <div class="panel-footer">
+
+                    <span id="up@(item.ID)" class="up">
+                        @Ajax.ActionLink(item.Up.ToString(), "Up", new { id = item.ID },
+                new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "up" + item.ID }, new { @class = "glyphicon glyphicon-thumbs-up" })
+                    </span>
+
+                    <span>
+                        @Html.ActionLink(item.CommentCount.ToString(), "Details", new { id = item.ID }, new { @class = "glyphicon glyphicon-comment" })
+                    </span>
+                    <span>
+                        @if (item.ConfessID != null)
+                        {
+                            @Html.ActionLink("表白", "details", "confess", new { id = item.ConfessID }, new { @class = "glyphicon glyphicon-tag" })
+                        }
+                    </span>
+
+                </div>
+            </div>      
+     
+        }
+
+
+        @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = false })
+        @{Html.RegisterMvcPagerScriptResource();}
+        <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    </div>
+    <div class="col-md-4">
+
+        <div class="jumbotron">
+            <h3>Hello</h3>
+            <p>JustSay 点滴可以分享情侣间的笑话，点滴。</p>
+            <p><div class="btn-group">
+                @Html.ActionLink("发表", "Create", null, new { @class="btn btn-success btn-lg"})
+                @if(JustSay.Config.HotConfig.IsReviewFunny==1)
+                {
+                 <a type="button" class="btn btn-primary btn-lg" href="/funny/ReviewDetail">审核</a>
+                }
+            </div>
+            </p>
+             
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("li:eq(1)").addClass("active")
+    })
+
+</script>

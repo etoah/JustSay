@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="justsay" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\WEB\\JustSay\\Code2\\JustSay\\JustSay\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\WEB\\JustSay\\Code2\\JustSay\\JustSay\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="justsay/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\WEB\\JustSay\\Code2\\JustSay\\JustSay\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="JustSayEntities-Web.config Connection String" description="" value="metadata=res://*/JustSay.csdl|res://*/JustSay.ssdl|res://*/JustSay.msl;provider=System.Data.SqlClient;provider connection string=&quot;Server=127.0.0.1;Database=justsay;User ID=sa;Password=sa&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\WEB\\JustSay\\Code2\\JustSay\\JustSay\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='JustSayEntities']/@connectionString" />
+  </parameter>
+</parameters>

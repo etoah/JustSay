@@ -1,0 +1,45 @@
+﻿@model Justsay.Models.Pro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Pro</legend>
+
+    <div class="display-label">PostID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostID)
+    </div>
+
+    <div class="display-label">TypeID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeID)
+    </div>
+
+    <div class="display-label">TypeName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeName)
+    </div>
+
+    <div class="display-label">Info</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Info)
+    </div>
+
+    <div class="display-label">TimeStart</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimeStart)
+    </div>
+
+    <div class="display-label">DeadLine</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeadLine)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,37 @@
+﻿@model PagedList<Justsay.Models.Comment>
+@{
+    int count = 0;
+}
+
+
+
+@foreach (var item in Model)
+{
+    <hr />
+
+       
+    @Html.DisplayFor(modelItem => item.ShowName)
+      
+
+    @Html.DisplayFor(modelItem => item.Time)
+
+
+    @Html.DisplayFor(modelItem => item.Content)
+
+    @Html.DisplayFor(modelItem => item.Funny.ShowName)
+
+    @Html.DisplayFor(modelItem => item.Up)
+
+    @if (User.Identity.Name == item.MemberID.ToString() || User.IsInRole("Admin,SuperAdmin,Owner"))
+    {
+                    
+        @: @Html.ActionLink("编辑", "Edit", "Comment", new { id = item.ID }, null) |
+        @: @Html.ActionLink("删除", "Delete", "Comment", new { id = item.ID }, null)
+                }
+    <hr />
+}
+
+@Ajax.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", Id = ViewBag.FunnyID.ToString() }, new MvcAjaxOptions { UpdateTargetId = "comment", EnablePartialLoading = true })
+@section Scripts{@{Html.RegisterMvcPagerScriptResource();}}
+
+

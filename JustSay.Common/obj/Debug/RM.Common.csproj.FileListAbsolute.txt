@@ -1,0 +1,5 @@
+E:\WEB\源码\ASP.NET通用权限管理系统源代码（含文档、数据库）\src\RM.Common\bin\Debug\RM.Common.dll
+E:\WEB\源码\ASP.NET通用权限管理系统源代码（含文档、数据库）\src\RM.Common\bin\Debug\RM.Common.pdb
+E:\WEB\源码\ASP.NET通用权限管理系统源代码（含文档、数据库）\src\RM.Common\obj\Debug\RM.Common.csprojResolveAssemblyReference.cache
+E:\WEB\源码\ASP.NET通用权限管理系统源代码（含文档、数据库）\src\RM.Common\obj\Debug\RM.Common.dll
+E:\WEB\源码\ASP.NET通用权限管理系统源代码（含文档、数据库）\src\RM.Common\obj\Debug\RM.Common.pdb

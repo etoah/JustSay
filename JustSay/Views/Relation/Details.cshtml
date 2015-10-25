@@ -1,0 +1,60 @@
+﻿@model Justsay.Models.Relation
+@{
+    ViewBag.Title = "对" + Model.ToName + "的暗恋";
+}
+
+<fieldset class="relationdtl">
+    <legend>暗恋<span class="glyphicon glyphicon-heart"></span>@Model.ToName </legend>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="/Content/Images/暗恋-Post.jpg" style="width:100%;" />
+        </div>
+    </div>
+    <div class="pull-right text-muted"><small>@Model.Time</small></div>
+    <div class="clearfix"></div>
+
+
+   <div class="row lead">
+            <div class="col-md-6 text-success">
+            <div class="display-label">昵称:</div>
+            <div class="display-field">
+                <a href="/message/create/?idstr=@Model.MemberID.UidEncrypt()&name=@Model.ShowName.DefaultValue("佚名")" data-toggle="modal" data-target="#justsaymodal" >@Model.ShowName.DefaultValue("佚名") </a>
+            </div>
+
+            <div class="display-label">FromPhone:</div>
+            <div class="display-field">
+                @Model.FromPhone.HidePhone()
+            </div>
+
+            <div class="display-label">FromEmail:</div>
+            <div class="display-field">
+                @Model.FromEmail.HideEmail()
+            </div>
+        </div>
+
+            <div class="col-md-6">
+            <div class="display-label">ToName:</div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.ToName)
+            </div>
+            <div class="display-label">ToPhone:</div>
+            <div class="display-field">
+                @Model.ToPhone.HidePhone()
+            </div>
+            <div class="display-label">ToEmail:</div>
+            <div class="display-field">
+                @Model.ToEmail.HideEmail()
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</fieldset>
+
+<p>
+    @Html.ActionLink("返回", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿@model Justsay.Models.Relation
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>你确认要删除吗?</h3>
+<fieldset>
+    <legend>Relation</legend>
+
+    <div class="display-label">ShowName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShowName)
+    </div>
+
+    <div class="display-label">FromName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromName)
+    </div>
+
+    <div class="display-label">FromPhone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromPhone)
+    </div>
+
+    <div class="display-label">FromEmail</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromEmail)
+    </div>
+
+    <div class="display-label">ToName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToName)
+    </div>
+
+    <div class="display-label">ToPhone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToPhone)
+    </div>
+
+    <div class="display-label">ToEmail</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToEmail)
+    </div>
+
+    <div class="display-label">Time</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Time)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("返回", "Index")
+    </p>
+}

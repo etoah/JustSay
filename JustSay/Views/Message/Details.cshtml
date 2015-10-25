@@ -1,0 +1,58 @@
+﻿@model Justsay.Models.Message
+
+
+@{
+    ViewBag.Title = "Details";
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Manage.cshtml";
+    }
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Message</legend>
+
+    <div class="display-label">Member</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Member.Email)
+    </div>
+
+    <div class="display-label">Member1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Member1.Email)
+    </div>
+
+    <div class="display-label">FromName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromName)
+    </div>
+
+    <div class="display-label">ToName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToName)
+    </div>
+
+    <div class="display-label">IsNew</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsNew)
+    </div>
+
+    <div class="display-label">Time</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Time)
+    </div>
+
+    <div class="display-label">Content</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

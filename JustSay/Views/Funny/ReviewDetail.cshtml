@@ -1,0 +1,61 @@
+﻿@model Justsay.Models.Funny
+@{
+    ViewBag.Title = "ReviewDetail";
+}
+<style>
+    body {
+        background-color: #444 !important;
+        background-image: url();
+    }
+</style>
+
+
+
+<fieldset>
+    <legend>点滴</legend>
+
+
+    @if (Model != null)
+    {
+        <h4>你觉的这个点滴...</h4>
+        <div class="panel panel-success">
+
+            <div class="panel-body">
+                <p>
+                    <pre>@Model.Content</pre>
+                </p>
+
+                @if (!string.IsNullOrEmpty(Model.ImgUrl))
+                {
+                    <img class="funnyimg" alt="恋爱笑话" src="/upload/Img/@Model.ImgUrl"/>
+                }
+            </div>
+            <div class="panel-footer">
+                <span>
+                    @if (Model.ConfessID != null)
+                    {
+                        @Html.ActionLink("查看表白", "details", "confess", new { id = Model.ConfessID }, null)
+                    }
+                </span>
+            </div>
+        </div>
+        <p>
+            @Html.ActionLink("好笑", "Review", new { id = Model.ID, pageindex = 1 }, new { @class = "btn btn-primary btn-lg" }) |
+     @Html.ActionLink("不好笑", "Review", new { id = Model.ID, pageindex = 0 }, new { @class = "btn btn-default btn-lg" }) |
+    @Html.ActionLink("不确定", "ReviewDetail", null, new { @class = "btn btn-default btn-lg" })
+            @Html.ActionLink("下一个", "ReviewDetail", null, new { @class = "btn btn-default btn-lg" })
+        </p>
+    }
+    else
+    {
+        <p class="bg-danger text=center">
+            <h4>请稍后再试。</h4>
+        </p>
+    }
+    <div class="well">
+        <ol>
+            <li>自己的或朋友的爱情点滴，或真实，或笑点，不含政治、色情、广告、诽谤、歧视等内容。</li>
+        </ol>
+    </div>
+</fieldset>
+
